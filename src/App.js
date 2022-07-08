@@ -19,9 +19,9 @@ import ProductManagement from "./components/Page/ProductManagement.component";
 import UserManagement from "./components/Page/UserManagement.component";
 import User from "./components/Page/User.component";
 import { BrowserRouter , Route, Routes, Link } from "react-router-dom";
-import {  mdiCart } from '@mdi/js';
+import {  mdiCart, mdiHeart, mdiAccount, mdiClipboardClockOutline, mdiCogOutline, mdiLogout } from '@mdi/js';
 import Icon from '@mdi/react'
-import {Menu, MenuItem} from '@szhsin/react-menu';
+import {Menu, MenuItem, FocusableItem} from '@szhsin/react-menu';
 import '@szhsin/react-menu/dist/index.css';
 import JackStyleLogo from "./images/JackStyleLogo.png"
 export const UserContext = createContext();
@@ -150,12 +150,12 @@ function App() {
                                  {Account.UserID !== 0 ? 
                                     <li>                                   
                                        <Menu menuButton={<div className="login_btn"><a className="nav-link" >{Account.UserName}</a></div>}>
-                                             <MenuItem className="nav-item" ><Link to="/User" > Personal Setting</Link></MenuItem>
-                                             <MenuItem className="nav-item" ><Link to="/FavouriteList" > Favourite List</Link></MenuItem>
-                                             <MenuItem className="nav-item" ><Link to="/History" > History</Link></MenuItem> 
-                                             <MenuItem className="nav-item"><Link to="/Cart" className="nav-link"><Icon path={mdiCart} size={1}/> Cart</Link></MenuItem>
-                                             {Account.Role === "admin"? <MenuItem className="nav-item" ><Link to="/Admin/UserManagement" > System Admin</Link></MenuItem> : null}                          
-                                             <MenuItem className="nav-item"  onClick={() => LoginClick()}><Link to="/Home">LogOut</Link></MenuItem>
+                                             <FocusableItem className="nav-item" ><Link to="/User" ><Icon path={mdiAccount} size={1}/> Personal Setting</Link></FocusableItem>
+                                             <FocusableItem className="nav-item" ><Link to="/FavouriteList" ><Icon path={mdiHeart} size={1}/> Favourite List</Link></FocusableItem>
+                                             <FocusableItem className="nav-item" ><Link to="/History" ><Icon path={mdiClipboardClockOutline} size={1}/> History</Link></FocusableItem> 
+                                             <FocusableItem className="nav-item"><Link to="/Cart" ><Icon path={mdiCart} size={1}/> Cart</Link></FocusableItem>
+                                             {Account.Role === "admin"? <FocusableItem className="nav-item" ><Link to="/Admin/UserManagement" ><Icon path={mdiCogOutline} size={1}/> System Admin</Link></FocusableItem> : null}                          
+                                             <FocusableItem className="nav-item"  onClick={() => LoginClick()}><Link to="/Home"><Icon path={mdiLogout} size={1}/> LogOut</Link></FocusableItem>
                                        </Menu>                                    
                                     </li> 
                                  : <li className="login_btn">

@@ -62,7 +62,7 @@ const FavouriteList = ()  =>{
 
 		favlistService.GetAllFavList(loginedAccount.Account.UserID)
 		.then(response => {   
-		   console.log(response.data)
+		   console.log("loadProduct", response.data)
 		   if(response.data[0] !== "NO FavList")
 		   {
 			
@@ -86,6 +86,10 @@ const FavouriteList = ()  =>{
 				});
 			
 			}
+			else
+			{
+				setProductData([])
+			}
 		 
 		})   
 		.catch(e => {
@@ -104,10 +108,9 @@ const FavouriteList = ()  =>{
 							<div className="row">
 								<div className="col-md-10 offset-md-1">
 									<div className="titlepage">
-										<h2>Our Shirt</h2>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labor
-											e et dolore magna aliqua. Ut enim ad minim veniam, qui
-										</p>
+										<h2>Favourite List</h2>
+										{ProductData.length === 0? <p>You have no any favourite products. Please add some product into your favourite.</p> :
+										 <p>Your favourite product(s) are listed on followings.</p>}
 									</div>
 								</div>
 							</div>

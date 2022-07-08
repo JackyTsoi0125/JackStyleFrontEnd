@@ -459,7 +459,11 @@ button {
      transition: ease-in all 0.5s;
 }
 
-
+.read_more2:hover {
+     background: #03cafc;
+     color: #fff !important;
+     transition: ease-in all 0.5s;
+}
 /** about section **/
 
 .about {
